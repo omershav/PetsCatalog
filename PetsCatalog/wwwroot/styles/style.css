@@ -1,0 +1,209 @@
+﻿
+ul.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    margin-top: -4px;
+}
+
+.menu li {
+    float: left;
+}
+
+    .menu li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+        .menu li a:hover {
+            background-color: #111;
+        }
+
+h1, h2 {
+    text-align: center;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+}
+
+body {
+    font-family: arial;
+    margin: 0;
+}
+
+.animals {
+    font-family: arial, helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 75%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .animals td, #animals th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    .animals tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .animals tr:hover {
+        background-color: #ddd;
+    }
+
+    .animals th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: #333;
+        color: white;
+    }
+
+.catalog {
+    width: 50%;
+}
+
+.details {
+    display: inline-block;
+    text-align: center;
+    max-width: 600px;
+    vertical-align: top;
+    width: auto;
+}
+
+.animalFields {
+    text-align: center;
+    width: auto;
+}
+
+#wrapper {
+    text-align: center;
+}
+
+#commentsWrapper {
+    overflow: scroll;
+    height: 257px;
+    width: 220px;
+    display: inline-block;
+}
+
+.comments {
+    text-align: center;
+    width: auto;
+}
+
+.buttonStyle {
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+    .buttonStyle:hover, input[type=submit]:hover, input[type=reset]:hover, .buttonAdmin:hover {
+        background-color: #111;
+    }
+
+input[type=submit], input[type=reset], .buttonAdmin {
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.field-validation-error {
+    color: red;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid red;
+}
+
+.validation-summary-errors, .validation-summary-valid {
+    background-color: white;
+    color: black;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logo {
+    width: 70%;
+}
+
+table img {
+    width: 150px;
+    height: 100px;
+}
+
+.details img {
+    width: 100px;
+    height: 55px;
+}
+
+
+#Comment_CommentData {
+    vertical-align: bottom;
+}
+
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: #eee;
+    margin: 0;
+}
+
+    ul.breadcrumb li {
+        display: inline;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+        ul.breadcrumb li + li:before {
+            padding: 8px;
+            color: black;
+            content: "/\00a0";
+        }
+
+        ul.breadcrumb li a {
+            color: #df7f15;
+            text-decoration: none;
+        }
+
+            ul.breadcrumb li a:hover {
+                color: #b76913;
+                text-decoration: underline;
+            }
+
+.addComments {
+    margin-top: 15px;
+}
+
+.success {
+    text-align: center;
+    width: 50%;
+    background-color: aliceblue;
+    border: 1px solid black;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}

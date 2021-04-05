@@ -1,0 +1,46 @@
+﻿@model PetsCatalog.ViewModels.AnimalCategoriesViewModel
+
+@{
+    ViewBag.Title = "Our Catalog";
+}
+
+<div>
+    <ul class="breadcrumb">
+        <li><a asp-action="Index" asp-controller="Home">Home</a></li>
+        <li><a href="#">Catalog</a></li>
+    </ul>
+</div>
+
+<h1>Our catalog</h1>
+
+<table class="animals catalog">
+    <tr>
+        <td>
+            <form asp-controller="Catalog" asp-action="CatalogByCategory" method="post">
+                Please select a category:
+                <select asp-for="@Model.Category.CategoryId" asp-items="@(new SelectList(@Model.Categories, "CategoryId", "Name"))"></select>
+                <input type="submit" value="Select" id="submitBtn" />
+            </form>
+        </td>
+    </tr>
+</table>
+<br />
+
+<table class="animals catalog">
+    <tr>
+        <th>Picture</th>
+        <th>Name</th>
+        <th>Find out more and comment</th>
+    </tr>
+    @foreach (var animal in Model.Animals)
+    {
+        <tr>
+            <td><img src="~/pics/@animal.PictureName" /></td>
+            <td>@animal.Name</td>
+            <td>
+                <button class="buttonStyle" type="button" onclick="location.href='@Url.Action("AnimalDetails", "Catalog", new { animalId = @animal.AnimalId})'">More Details</button>
+            </td>
+
+        </tr>
+    }
+</table>

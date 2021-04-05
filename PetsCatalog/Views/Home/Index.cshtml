@@ -1,0 +1,26 @@
+﻿@model List<PetsCatalog.Models.Animal>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Our two most highly rated pets today are:</h2>
+
+<table class="animals">
+    <tr>
+        <th>Picture</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Number of comments</th>
+    </tr>
+
+    @foreach (var animal in Model)
+    {
+        <tr>
+            <td><img src="~/pics/@animal.PictureName" /></td>
+            <td>@animal.Name</td>
+            <td>@animal.Description</td>
+            <td>@animal.Comments.Count</td>
+        </tr>
+    }
+</table>

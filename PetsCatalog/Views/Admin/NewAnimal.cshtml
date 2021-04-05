@@ -1,0 +1,47 @@
+﻿@model PetsCatalog.Models.Animal
+
+@{
+    ViewBag.Title = "New Animal";
+}
+
+<div>
+    <ul class="breadcrumb">
+        <li><a asp-action="Index" asp-controller="Home">Home</a></li>
+        <li><a asp-action="Index" asp-controller="Admin">Admin Page</a></li>
+        <li><a href="#">Add Animal</a></li>
+    </ul>
+</div>
+
+<h1>Please fill the following fields:</h1>
+
+<div id="wrapper">
+    <form asp-controller="Admin" asp-action="CreateAnimal" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="All"></div>
+        <table class="animals animalFields">
+            <tr>
+                <th><label asp-for="Name"></label></th>
+                <td><input asp-for="Name" required /></td>
+            </tr>
+            <tr>
+                <th><label asp-for="Age"></label></th>
+                <td><input asp-for="Age" required /></td>
+            </tr>
+            <tr>
+                <th><label asp-for="AnimalImage"></label></th>
+                <td><input asp-for="AnimalImage" accept="image/*" required /></td>
+            </tr>
+            <tr>
+                <th><label asp-for="Description"></label></th>
+                <td><textarea asp-for="Description" rows="3" required></textarea></td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td><select asp-for="@Model.CategoryId" asp-items="@(new SelectList(@ViewBag.Categories, "CategoryId", "Name"))"></select></td>
+            </tr>
+            <tr>
+                <td><input type="reset" value="Clear fields" /></td>
+                <td><input type="submit" value="Add animal" /></td>
+            </tr>
+        </table>
+    </form>
+</div>

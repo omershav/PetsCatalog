@@ -1,0 +1,65 @@
+﻿@model PetsCatalog.ViewModels.AnimalCategoriesViewModel
+
+@{
+    ViewBag.Title = "Administrator";
+}
+
+<div>
+    <ul class="breadcrumb">
+        <li><a asp-action="Index" asp-controller="Home">Home</a></li>
+        <li><a href="#">Admin Page</a></li>
+    </ul>
+</div>
+
+<h1>Administrator Page</h1>
+
+@if (ViewBag.isSucceed == true)
+{
+    <script>alert('The animal was updated successfuly in the system')</script>
+}
+
+@if (ViewBag.isDeleted == true)
+{
+    <script>alert('The animal was deleted successfuly from the system')</script>
+}
+
+<table class="animals catalog">
+    <tr>
+        <td>
+            <form asp-controller="Admin" asp-action="CatalogByCategoryAdmin" method="post">
+                Please select a category:
+                <select asp-for="@Model.Category.CategoryId" asp-items="@(new SelectList(@Model.Categories,"CategoryId","Name"))"></select>
+                <input type="submit" value="Select" />
+            </form>
+        </td>
+        <td>
+            <button class="buttonAdmin" type="button" onclick="location.href='@Url.Action("NewAnimal", "Admin")'">Add Animal</button>
+        </td>
+    </tr>
+</table>
+<br />
+
+<table class="animals catalog">
+    <tr>
+        <th>Picture</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Description</th>
+        <th colspan="2">Add New</th>
+    </tr>
+    @foreach (var animal in Model.Animals)
+    {
+        <tr>
+            <td><img src="~/pics/@animal.PictureName" /></td>
+            <td>@animal.Name</td>
+            <td>@animal.Age</td>
+            <td>@animal.Description</td>
+            <td>
+                <button class="buttonAdmin" type="button" onclick="location.href='@Url.Action("EditAnimal", "Admin", new { animalId = @animal.AnimalId})'">Edit</button>
+            </td>
+            <td>
+                <button class="buttonAdmin" type="button" onclick="location.href='@Url.Action("DeleteAnimal", "Admin", new { animalId = @animal.AnimalId})'">Delete</button>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,66 @@
+﻿@model PetsCatalog.ViewModels.AnimalDetailsViewModel
+
+@{
+    ViewBag.Title = "Animal Details";
+}
+
+<div>
+    <ul class="breadcrumb">
+        <li><a asp-action="Index" asp-controller="Home">Home</a></li>
+        <li><a asp-action="Index" asp-controller="Catalog">Catalog</a></li>
+        <li><a href="#">Animals Details: @Model.Animal.Name</a></li>
+    </ul>
+</div>
+
+<h1>Animal Details</h1>
+
+@if (ViewBag.isSucceed == true)
+{
+    <script>alert('The comment was added successfuly')</script>
+}
+
+<div id="wrapper">
+    <table class="animals details">
+        <tr>
+            <th>Picture</th>
+            <td><img src="~/pics/@Model.Animal.PictureName" /></td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>@Model.Animal.Name</td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td>@Model.Animal.Age</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>@Model.Animal.Description</td>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <td>@Model.Animal.Category.Name</td>
+        </tr>
+    </table>
+    <div id="commentsWrapper">
+        <table class="animals comments">
+            <tr>
+                <th>Comments on this animal</th>
+            </tr>
+            @foreach (var com in @Model.Comments)
+            {
+                <tr>
+                    <td>@com.CommentData</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="addComments">
+        <form asp-controller="Catalog" asp-action="AddComment" asp-route-animalId="@Model.Animal.AnimalId" method="post">
+            <label asp-for="Comment.CommentData"></label>
+            <textarea asp-for="Comment.CommentData" rows="2" required></textarea>
+            <input type="submit" value="Add comment" /><br />
+            <span asp-validation-for="Comment.CommentData"></span>
+        </form>
+    </div>
+</div>
